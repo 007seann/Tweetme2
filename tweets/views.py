@@ -10,10 +10,24 @@ def home_view(request, *args, **kwargs):
 def room1_view(request, *args, **kwargs):
   return HttpResponse("<h1>This is sean's private room!</h1>")
 
+def tweet_list_view(request, *args, **kwargs):
+  """
+  REST API VIEW
+  Consumed by JavaScript or Swift/Java/iOS/Android
+  return json data
+  """
+  qs = Tweet.objects.all()
+  tweets_list = [{'id': x.id, 'content': x.content} for x in qs]
+  data = {
+    'response': tweets_list
+  } 
+  return JsonResponse(data) 
+
+
 def tweet_datail_view(request, tweet_id, *args, **kwargs):
   """
   REST API VIEW
-  Consume by JavaScript or Swift/Java/iOS/Android
+  Consumed by JavaScript or Swift/Java/iOS/Android
   return json data
   """
   data = {
