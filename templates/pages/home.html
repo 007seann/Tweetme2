@@ -1,27 +1,30 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %} {% block head_title %} Beta {% endblock head_title %}
+{% block content %} Welcome to Tweetme 2 :)
 
-{% block head_title %}
- Beta 
-{% endblock head_title %}
-
-{% block content %} 
-Welcome to Tweetme 2 :) 
+<div id="tweets">Replace me</div>
 
 <script>
-const xhr = new XMLHttpRequest() // xhr = SomeClass()
-const method = 'GET' // 'POST'
-const url = '/tweets'
-const responseType = 'json'
+  const tweetsElement = document.getElementById('tweets'); // get an html element 
+  tweetsElement.innerHTML = 'Loading...'; // set new html in that element
 
-xhr.responseType = responseType
-xhr.open(method, url)
-xhr.onload = function() {
-  const serverResponse = xhr.response //
-  var listedItems = serverResponse.response
-  console.log(listedItems)
-}
-xhr.send()
+  var el1 = '<h1> Hi there 1 </h1>';
+  var el2 = '<h1> Hi there 2 </h1>';
+  var el3 = '<h1> Hi there 3 </h1>';
+  tweetsElement.innerHTML = el1 + ' ' + el2 + ' ' + el3;
 
+  const xhr = new XMLHttpRequest(); // xhr = SomeClass()
+  const method = 'GET'; // 'POST'
+  const url = '/tweets';
+  const responseType = 'json';
+
+  xhr.responseType = responseType;
+  xhr.open(method, url);
+  xhr.onload = function () {
+    const serverResponse = xhr.response; //
+    var listedItems = serverResponse.response;
+    console.log(listedItems);
+  };
+  xhr.send();
 </script>
 
 {% endblock content %}
