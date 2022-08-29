@@ -5,7 +5,7 @@ from .models import Tweet
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
-  return HttpResponse("<h1>HELLO World!</h1>")
+  return render(request, "pages/home.html", context={}, status=200) 
 
 def room1_view(request, *args, **kwargs):
   return HttpResponse("<h1>This is sean's private room!</h1>")
