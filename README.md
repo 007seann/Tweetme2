@@ -1,2 +1,2 @@
 # Tweetme2
-Create a similiar tweet with Django
+Create a similiar twitter with Django
