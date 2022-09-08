@@ -4,7 +4,7 @@
 <div id="tweets">Loading...</div>
 
 <script>
-  const tweetsElement = document.getElementById('tweets'); // get an html element 
+  const tweetsElement = document.getElementById('tweets'); // get an html element
   {% comment %} tweetsElement.innerHTML = 'Loading...'; // set new html in that element
 
   var el1 = '<h1> Hi there 1 </h1>';
@@ -17,8 +17,17 @@
   const url = '/tweets';
   const responseType = 'json';
 
+  function handleDidLike (tweet_id, currentCount) {
+    console.log(tweet_id, currentCount)
+    return 
+  }
+
+  function LikeBtn(tweet) {
+    return "<button class='btn btn-primary btn-sm' onclick=handleDidLike(" + tweet.id + "," + tweet.likes + ")>" + tweet.likes + " Like</button>"
+  }
+
   function formattedTweetObject(tweet) {
-    var formattedTweet = "<div class='mb-4 tweet' id='tweet-" + tweet.id + " '><p>" + tweet.content + "</p></div>"
+    var formattedTweet = "<div class='mb-4 tweet' id='tweet-" + tweet.id + " '><p>" + tweet.content + "</p><div class='btn-group'>"+ LikeBtn(tweet) + "</div></div>"
     return formattedTweet;
   }
 
@@ -30,7 +39,7 @@
     var finalTweetStr = ''
     for (var i = 0; i < listedItems.length; i++) { // 배운걸로 수정
       var tweetObject = listedItems[i]
-      var currentItem = formattedTweetObject(tweetObject) 
+      var currentItem = formattedTweetObject(tweetObject)
         finalTweetStr += currentItem
 
     }
