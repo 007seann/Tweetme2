@@ -1,7 +1,12 @@
 {% extends 'base.html' %} {% block head_title %} Beta {% endblock head_title %}
-{% block content %} Welcome to Tweetme 2 :)
+{% block content %} 
+<div class='row text-center'>
+  <div class='col'>
+    <h1>Welcome to Bluberry Bwitter </h1>
+  </div>
+</div>
 
-<div id="tweets">Loading...</div>
+<div class='row' id="tweets">Loading...</div>
 
 <script>
   const tweetsElement = document.getElementById('tweets'); // get an html element
@@ -27,7 +32,7 @@
   }
 
   function formattedTweetObject(tweet) {
-    var formattedTweet = "<div class='mb-4 tweet' id='tweet-" + tweet.id + " '><p>" + tweet.content + "</p><div class='btn-group'>"+ LikeBtn(tweet) + "</div></div>"
+    var formattedTweet = "<div class='col-12 col-md-10 mx-auto border rounded py-3 mb-4 tweet' id='tweet-" + tweet.id + " '><p>" + tweet.content + "</p><div class='btn-group'>"+ LikeBtn(tweet) + "</div></div>"
     return formattedTweet;
   }
 

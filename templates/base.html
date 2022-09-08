@@ -15,10 +15,17 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <style>
+      .bg-bwitter {
+        background-color: #7fb3e7!important;
+      }
+    </style>  
 
-    <title>Tweetme 2{% block head_title %}{% endblock head_title %}</title>
+    <title>Bwitter{% block head_title %}{% endblock head_title %}</title>
   </head>
   <body>
+    {% include "components/navbar.html" %}
+    <div class='container'>
     {% block content %} {% endblock content %}
 
     <!-- DRY Don't Repeat Yourself -->
