@@ -7,6 +7,9 @@ from .models import Tweet
 def home_view(request, *args, **kwargs):
   return render(request, "pages/home.html", context={}, status=200) 
 
+def tweet_list_view(request, *arg, **kwargs):
+  qs = Tweet.objects.all()
+
 def room1_view(request, *args, **kwargs):
   return HttpResponse("<h1>This is sean's private room!</h1>")
 
