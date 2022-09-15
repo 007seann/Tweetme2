@@ -106,7 +106,7 @@
       xhr.open(method, url);
       xhr.onload = function () {
         const serverResponse = xhr.response; //
-        const listedItems = serverResponse.response; // array
+        const listedItems = serverResponse
         var finalTweetStr = ''
         for (var i = 0; i < listedItems.length; i++) { // 배운걸로 수정
           var tweetObject = listedItems[i]
