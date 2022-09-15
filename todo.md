@@ -6,7 +6,7 @@
       -> User Permissions
         -> Delete
         -> Retweeting
-        -> Liking
+        -> Liking or Unlinking
 
 2. Users
     -> Register 
