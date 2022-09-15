@@ -34,4 +34,4 @@ class Tweet(models.Model):
       "likes": random.randint(0, 144),
     }
   
-  
+    
