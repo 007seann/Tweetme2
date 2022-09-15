@@ -3,7 +3,9 @@ from django.http import HttpResponse, Http404, JsonResponse
 from django.shortcuts import render, redirect
 from django.utils.http import is_safe_url
 
-from rest_framework.decorators import api_view
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.decorators import api_view, authentication_classes ,permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from tweetme2.settings import ALLOWED_HOSTS
 from .forms import TweetForm
@@ -18,6 +20,8 @@ def home_view(request, *args, **kwargs):
   return render(request, "pages/home.html", context={}, status=200) 
 
 @api_view(['POST']) # http method the client == POST
+@authentication_classes([SessionAuthentication])
+@permission_classes([IsAuthenticated]) # REST API course 
 def tweet_create_view(request, *args, **kwargs):
   serializer = TweetSerializer(data=request.POST)
   if serializer.is_valid(raise_exception=True):
@@ -60,7 +64,7 @@ def tweet_create_view_pure_django(request, *args, **kwargs):
     # do other form related logic
     obj.user = user
     obj.save()
-    if request.is_ajax():
+    if request.is_ajax(): 
       return JsonResponse(obj.serialize(), status=201)
     
     if next_url != None and is_safe_url(next_url, ALLOWED_HOSTS):
