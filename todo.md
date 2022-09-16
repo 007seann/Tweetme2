@@ -26,3 +26,26 @@ Long term todos
 - Notifications 
 - DM
 - Explore -> finding hashtags 
+
+
+
+Comment
+  Reply
+    Sub Reply
+    Sub Reply
+  Reply
+  Reply
+
+Tweet
+  Retweet comment on the og tweet
+    Retweet of Retweet
+
+Retweet of Retweet
+Retweet
+Tweet
+
+Tweet
+Retweet with comment
+
+
+
