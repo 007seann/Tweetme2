@@ -19,7 +19,7 @@ class TweetActionSerializer(serializers.Serializer):
       raise serializers.ValidationError("Invalid Action ")
     return value
 
-class TweetSerializer(serializers.ModelSerializer):
+class TweetCreateSerializer(serializers.ModelSerializer):
   likes = serializers.SerializerMethodField(read_only=True)
   class Meta:
     model = Tweet
@@ -28,9 +28,19 @@ class TweetSerializer(serializers.ModelSerializer):
   def get_likes(self, obj):
     return obj.likes.count()
   
-  
   def validate_content(self, value):
     if len(value) > MAX_TWEET_LENGTH:
       raise serializers.ValidationError("This tweet is too long")
-    return value      
+    return value   
+
+class TweetSerializer(serializers.ModelSerializer):
+  likes = serializers.SerializerMethodField(read_only=True)
+  parent = TweetCreateSerializer(read_only=True)
+  
+  class Meta:
+    model = Tweet
+    fields = ['id','content', 'likes', 'is_retweet', 'parent'] 
+    
+  def get_likes(self, obj):
+    return obj.likes.count()
   

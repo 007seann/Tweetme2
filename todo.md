@@ -6,6 +6,8 @@
       -> User Permissions
         -> Delete
         -> Retweeting
+          -> Read only serializer
+          -> Create only serializer
         -> Liking or Unlinking
 
 2. Users

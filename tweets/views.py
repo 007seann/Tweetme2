@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from tweetme2.settings import ALLOWED_HOSTS
 from .forms import TweetForm
 from .models import Tweet
-from .serializers import TweetSerializer, TweetActionSerializer
+from .serializers import TweetSerializer, TweetActionSerializer, TweetCreateSerializer
 
 ALLOWED_HOSTS = settings.ALLOWED_HOSTS
 
