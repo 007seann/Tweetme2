@@ -85,3 +85,5 @@ class TweetTestCase(TestCase):
     self.assertEqual(response.status_code, 404)
     response_incorrect_owner = client.delete('/api/tweets/3/delete/')
     self.assertEqual(response_incorrect_owner.status_code, 401)
+    
+    
